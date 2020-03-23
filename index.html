@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <title>我的课表</title>
+  <link rel="apple-touch-icon" href="./icon/logo.png" />
+  <link rel="apple-touch-icon-precomposed" href="./icon/logo.png" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/weui/1.1.2/style/weui.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery-weui/1.2.0/css/jquery-weui.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="my.css">
+</head>
+<body>
+  <div class="weui-tab">
+    <div class="weui-tab__bd">
+      <div id="tab1" class="weui-tab__bd-item weui-tab__bd-item--active">
+<!--         <div class="page__hd">
+          <h1 id="title" class="page__title">我的课表</h1>
+          <p class="page__desc">Schedule</p>
+        </div>
+ -->
+        <div class="weui-loadmore">
+          <i class="weui-loading"></i>
+          <span class="weui-loadmore__tips">正在加载</span>
+        </div>
+
+        <div id="tab1Content" style="display: none;">
+          <div class="weui-cells">
+            <div class="weui-cell weui-cell_select weui-cell_select-after weui-cell_swiped">
+              <div class="weui-cell__bd">
+                <select id="week" class="weui-select" name="select2">
+                  <option value="1">第1周</option>
+                </select>
+              </div>
+              <div class="weui-cell__ft">
+                <a id="setWEEK" class="weui-swiped-btn weui-swiped-btn_primary close-swipeout" href="javascript:;">设为本周</a>
+              </div>
+            </div>
+          </div>
+          <div class="weui-cells__title">课程表</div>
+          <div class="weui-panel" style="font-size: .8em;">
+            <table id="scheduleTable">
+              <thead>
+                <tr>
+                  <th class="text-center" scope="col" style="white-space:nowrap;">#</th>
+                  <th class="text-center" scope="col" style="white-space:nowrap;">周一</th>
+                  <th class="text-center" scope="col" style="white-space:nowrap;">周二</th>
+                  <th class="text-center" scope="col" style="white-space:nowrap;">周三</th>
+                  <th class="text-center" scope="col" style="white-space:nowrap;">周四</th>
+                  <th class="text-center" scope="col" style="white-space:nowrap;">周五</th>
+                  <th class="text-center" scope="col" style="white-space:nowrap;">周六</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th class="text-center" scope="row">12</th>
+                  <td></td><td></td><td></td><td></td><td></td><td></td>
+                </tr>
+                <tr>
+                  <th class="text-center" scope="row">34</th>
+                  <td></td><td></td><td></td><td></td><td></td><td></td>
+                </tr>
+                <tr>
+                  <th class="text-center" scope="row">56</th>
+                  <td></td><td></td><td></td><td></td><td></td><td></td>
+                </tr>
+                <tr>
+                  <th class="text-center" scope="row">78</th>
+                  <td></td><td></td><td></td><td></td><td></td><td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="weui-cells__title">未安排时间课程</div>
+          <div id="costomedLessonList" class="weui-cells">
+            <div class="weui-cell">
+              <div class="weui-cell__bd">
+                <p>舰船</p>
+              </div>
+              <div class="weui-cell__ft">教员</div>
+            </div>
+          </div>
+        </div>
+
+        <footer class="weui-footer">
+          <p class="weui-footer__text">Copyright © 2018 tangyusi97</p>
+        </footer>
+
+      </div>
+
+
+      <div id="tab2" class="weui-tab__bd-item">
+        <div class="weui-panel">
+          <div class="weui-panel__hd">所有课程列表</div>
+          <div id="lessonList" class="weui-panel__bd">
+            <!-- <div class="weui-media-box weui-media-box_text">
+              <h4 class="weui-media-box__title">数理方程（二）</h4>
+              <p class="weui-media-box__desc">6月21日 8:00-10:00 @海韵教学楼104</p>
+              <p class="weui-media-box__desc">陈于涛 | 60学时 考试 硕士研究生</p>
+            </div> -->
+          </div>
+        </div>
+
+        <footer class="weui-footer">
+          <p class="weui-footer__text">Copyright © 2018 tangyusi97</p>
+        </footer>
+
+      </div>
+
+    </div>
+
+    <div class="weui-tabbar">
+      <a href="#tab1" class="weui-tabbar__item weui-bar__item--on">
+        <div class="weui-tabbar__icon">
+          <img src="./icon/icon_nav_article.png" alt="">
+        </div>
+        <p class="weui-tabbar__label">周表</p>
+      </a>
+      <a href="#tab2" class="weui-tabbar__item">
+        <div class="weui-tabbar__icon">
+          <img src="./icon/icon_nav_cell.png" alt="">
+        </div>
+        <p class="weui-tabbar__label">课程</p>
+      </a>
+    </div>
+  </div>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.10/lodash.min.js"></script>
+  <script src="main.min.js"></script>
+</body>
+</html>
